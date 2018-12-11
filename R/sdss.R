@@ -60,13 +60,11 @@ readQuasarInfo <- function(filepath) {
 }
 
 
-
-
-
-# function to download files from server
-
-# function to collect data from ???
-
+loadQuasarsFromFolder <- function(folder, datafile) {
+  quasarFiles <- readLines(datafile)
+  files <- file.path(folder, quasarFiles)
+  lapply(files, readQuasarInfo)
+}
 
 # function to convert quasar specs to filename
 qsoParamsToFilename <- function(mjd, plate, fiber) {
